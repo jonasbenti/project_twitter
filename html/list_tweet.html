@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <center>
-    <title>Listagem de Hashtag</title>
+    <title>Listagem de Tweets</title>
     <!--<link href="css/list.css" rel="stylesheet" type="text/css" media="screen"/>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -11,21 +11,18 @@
 </head>
 <body class="panel panel-default">
     <div id="appTable" class="table-responsive" height="100%" width="100%">
-    <H1>Listagem de Hashtag </H1>
-    <button onclick="window.location='index.php?class=HashtagForm'" class="btn btn-success">
-        Inserir Hashtag
-   </button>
+    <H1>Listagem de Tweets </H1>
    <button onclick="window.location='index.php?class=InitList'" class="btn btn-primary">
-    Voltar a tela inicial
+        Voltar a tela inicial
     </button>
 </center>
 <table class="table table-striped">
 <thead class="thead-dark">
     <tr>
-        <td></td>
-        <td></td>
-        <td><b>Id</b></td>
-        <td><b>Descrição</b></td>
+        <td><b>Cód.</b></td>
+        <td><b>Tweet</b></td>
+        <td><b>Login</b></td>
+        <td><b>Hashtags</b></td>
     </tr>
 </thead>
 <tbody class="Table table-striped table-bordered table-hover">

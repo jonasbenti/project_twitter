@@ -33,7 +33,7 @@
             {
                 Hashtag::save($param);
                 $this->data = $param;
-                header("Location: index.php");
+                header("Location: index.php?class=HashtagList");
 
             } 
             catch (Exception $e) {

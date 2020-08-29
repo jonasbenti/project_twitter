@@ -7,7 +7,7 @@ class HashtagList
 
     public function __construct()
     {
-        $this->html = file_get_contents('html/list.html');
+        $this->html = file_get_contents('html/list_hashtag.html');
     }
 
     public function delete($param)
@@ -32,7 +32,7 @@ class HashtagList
             $items = '';
             foreach ($Hashtags as $Hashtag)
             {     
-                $item = file_get_contents('html/item.html');
+                $item = file_get_contents('html/item_hashtag.html');
                 $item = str_replace('{id}', $Hashtag['id'], $item);
                 $item = str_replace('{description}', $Hashtag['description'], $item);
                

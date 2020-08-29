@@ -35,7 +35,7 @@
             {
                 User::save($param);
                 $this->data = $param;
-                header("Location: UserList.php");
+                header("Location: index.php?class=UserList");
 
             } 
             catch (Exception $e) {
