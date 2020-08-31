@@ -8,13 +8,32 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
 <body class="panel panel-default">
     <div id="appTable" class="table-responsive" height="100%" width="100%">
     <H1>Listagem de Tweets </H1>
-   <button onclick="window.location='index.php?class=InitList'" class="btn btn-primary">
+
+    <div id="user" class="container">
+            <select class="form-control form-control-lg" id="combo_user">
+            {combo_user}
+        </select>
+    </div>
+
+      <div id="hashtag" class="container">
+        <select class="form-control form-control-lg" id="combo_hashtag">
+            {combo_hashtag}
+        </select>
+      </div>
+      <br>
+
+      <input type="button" value="Buscar tweet" class="btn btn-success"
+      id="btn_buscar"/>
+
+   <button onclick="window.location='index.php?class=InitList'" class="btn btn-danger">
         Voltar a tela inicial
     </button>
+    <br><br>
 </center>
 <table class="table table-striped">
 <thead class="thead-dark">
@@ -25,9 +44,13 @@
         <td><b>Hashtags</b></td>
     </tr>
 </thead>
-<tbody class="Table table-striped table-bordered table-hover">
-    {items}
-</tbody>
+<div id="containerTweet">
+    <tbody class="Table table-striped table-bordered table-hover">
+        {items}
+    </tbody>
+
+</div>
+
     
 </table>
 
@@ -36,3 +59,28 @@
 
 </body>
 </html>
+
+<script>
+
+    $('#btn_buscar').on('click', function(){
+        searchTweet();
+    });
+
+    var searchTweet = function(){
+        var url = '';
+        var comboUser = $('#combo_user').val();
+        var comboHashtag = $('#combo_hashtag').val();
+
+        url = "&filter=true&user_id="+comboUser+"&hashtag_id="+comboHashtag;
+
+        var urlInit = window.location.href;
+        urlInit = urlInit.split('&');
+       
+        window.location.href = urlInit[0] + url; 
+        
+        //$("#containerTweet").load(window.location.href + url + " #containerTweet");
+
+     
+    }
+    
+</script>

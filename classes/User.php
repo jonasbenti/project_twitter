@@ -8,13 +8,14 @@ class User
     {
         if(empty(self::$conn))
         {
+        $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8');
         $ini = parse_ini_file('config/twitter.ini');
         $host = $ini['host'];
         $name = $ini['name'];
         $user = $ini['user'];
         $pass = $ini['pass'];
         $port = $ini['port'];
-        self::$conn = new PDO("mysql:host={$host};port={$port};dbname={$name}",$user,$pass);
+        self::$conn = new PDO("mysql:host={$host};port={$port};dbname={$name}",$user,$pass, $options);
         self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         return self::$conn;
@@ -90,7 +91,7 @@ class User
             if (empty($id)) ///Insere o registro
             {
                 $sql = "INSERT INTO user (name, login, email) 
-                VALUES ('$name', '$login')";
+                VALUES ('$name', '$login', '$email')";
             }
             else // Atualiza o registro
             {
